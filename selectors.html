@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li title="iki açıklama">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, a.</li>
+        <li>Iure tempora ducimus quidem reiciendis quos a maxime accusamus quibusdam!</li>
+        <li class="kırmızı">Dolores, quibusdam veniam! Enim sunt necessitatibus perferendis dolore quidem explicabo.</li>
+        <li>Magni ipsa tempore, excepturi exercitationem praesentium cumque facilis laboriosam a.</li>
+        <li id="oge5">Enim excepturi quibusdam alias eligendi praesentium est maiores qui aliquid?</li>
+        <li>Possimus dicta ea quo consequuntur modi consequatur nesciunt et doloribus!</li>
+        <li class="kırmızı">Doloribus unde rerum sunt odio ad, doloremque blanditiis vitae ea.</li>
+        <li>Hic temporibus dolor minus eaque ipsum, repudiandae odit provident totam?</li>
+        <li title="bir açıklama">Perferendis cum voluptates saepe qui fugiat et repudiandae at molestias.</li>
+        <li>Sequi quam ducimus eos dolor consequatur dicta ipsam veniam quisquam vel.</li>
+    </ul>
+
+    <p title="bir açıklama">
+        Lorem ipsum <span class="kırmızı">dolor</span>  sit amet.
+    </p>
+
+    <form >
+
+        <label for="ad">Ad:</label>
+        <input type="text" name="ad" id="ad"> <br/>
+        <label for="soyad">Soyad:</label>
+        <input type="text" name="soyad" id="soyad"> <br/>
+        <label for="sehir">Şehir:</label>
+        <select name="sehir" id="sehir">
+            <option value="6">Ankara</option>
+            <option value="34">İstanbul</option>
+            <option value="35">İzmir</option>
+        </select>
+        <br/>
+        <br/>
+        
+        <input type="button" name="gönder" value="gönder">
+
+    </form>
+
+   
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        // herşeyi seç
+        // $("*").css({
+        //     "border": "3px solid black",
+        //     "margin": "3px"
+        // })
+
+        //tüm li leri seç, hepsinin sonuna gülücük koy.
+       
+        $("li").append(" :) ");
+        //$("ul").css("list-style","none");
+
+        // clas ile seçim : clası kırmızı olanları
+
+        $(".kırmızı").css ("color" , "red");
+
+        //id ile seçim:
+        $("#oge5").css("text-decoration" , "underline");
+
+        // titlena sahip attribute ile seçim
+        $('[title = "bir açıklama"]').css("background-color","yellow");
+
+        //çoklu seçim başına + koyduk
+        $("#oge5, .kırmızı").prepend("+ ");
+
+        //css hiyerarsi
+        $("p > .kırmızı").css("background-color", "gray");
+
+        //siblings: #oge5 sonraki kardeşleri
+        $("#oge5 ~ *").css("border-left" , "10px solid red");
+
+        // içinde dolor kelimesi geçen lileri sonuna D koy
+        $("li:contains('dolor')").append("D");
+
+        //metin kutularının sağına * karakteri koy
+        $("input[type='text']").after(" *");
+
+        //append bir elementin içinin sonuna ekler 
+        //after doğrudan sonrasına ekler
+
+        //name attribute u d harfi ilen bitenleri arka planını pembe yap
+
+        $("input[name$='d']").css("background-color", "pink")
+
+        //form elemanlarının seçimi
+        $("input:button").val("Kaydet");
+
+        //child filters 
+        //ul un içindeki lilerin tek sırada olanlarının sonuna tek
+        //çif sırada olanların sonuna çift yaz
+
+        $("ul > li:nth-child(odd)").append("[TEK]");
+        $("ul > li:nth-child(even)").append("[ÇİFT]");
+
+        //ulun içindeki 4.linin metnini ALİ Bingöl yap
+
+        $("ul > li:nth-child(4)")
+        .text("ALİ BİNGÖL")
+        .css("text-align" , "center")
+        .css("padding" , "1rem")
+        .css("border" , "3px dashed blue");
+
+        //not : query ile seçim yapıldıktan sonra uygulanan metotlara uygulanan metotlar da aynı seçim üzerindeki 
+        
+
+    </script>
+
+</body>
+</html>
